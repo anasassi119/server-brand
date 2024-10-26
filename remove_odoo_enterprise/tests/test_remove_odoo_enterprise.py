@@ -34,7 +34,7 @@ class TestRemoveOdooEnterprise(common.TransactionCase):
         view = conf.get_views([[False, "form"]])["views"]["form"]
         doc = etree.XML(view["arch"])
 
-        query = "//setting[@id='appstore']"
+        query = "//setting[field[@widget='upgrade_boolean']]"
         for item in doc.xpath(query):
             self.assertTrue(item.attrib["invisible"])
 
